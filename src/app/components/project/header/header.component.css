@@ -1,0 +1,10 @@
+.brand-logo {
+  background-color: rgb(88, 14, 14);
+  padding:0 0.3em;  
+  box-sizing: border-box;   
+}
+@media (max-width: 600px) {
+  .brand-logo {
+    font-size: 1.3em;
+  }
+}
