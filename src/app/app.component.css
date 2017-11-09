@@ -1,0 +1,12 @@
+#app-name-span {  
+  color: darkolivegreen;  
+  text-shadow: 2px black;
+}
+
+p {
+  font-size: 1.5em;
+}
+
+#student-name-span {
+  color: orange;
+}
