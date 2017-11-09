@@ -11,22 +11,22 @@ export class RecipeListComponent implements OnInit {
     new Recipe(
       'Test Recipe',
       'This is simply a test, no magical recipe here... yet!',
-      'https://picsum.photos/200/300/?random'
+      'http://img1.cookinglight.timeinc.net/sites/default/files/updated_main_images/1201p124-chicken-piccata-x.jpg'
     ),
     new Recipe(
       'Test Recipe',
       'This is simply a test, no magical recipe here... yet!',
-      'https://picsum.photos/200/300/?random'
+      'http://img1.cookinglight.timeinc.net/sites/default/files/updated_main_images/1201p124-chicken-piccata-x.jpg'
     ),
     new Recipe(
       'Test Recipe',
       'This is simply a test, no magical recipe here... yet!',
-      'https://picsum.photos/200/300/?random'
+      'http://img1.cookinglight.timeinc.net/sites/default/files/updated_main_images/1201p124-chicken-piccata-x.jpg'
     ),
     new Recipe(
       'Test Recipe',
       'This is simply a test, no magical recipe here... yet!',
-      'https://picsum.photos/200/300/?random'
+      'http://img1.cookinglight.timeinc.net/sites/default/files/updated_main_images/1201p124-chicken-piccata-x.jpg'
     )
   ];
 
