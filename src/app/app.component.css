@@ -1,3 +1,8 @@
+.main {
+  padding: 20px;
+  text-align:center;
+}
+
 #app-name-span {  
   color: darkolivegreen;  
   text-shadow: 2px black;
@@ -9,4 +14,16 @@ p {
 
 #student-name-span {
   color: orange;
+}
+
+.assignment-text {
+  text-align: initial;
+  background-color: darkkhaki;
+  line-height: 2em;  
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.vspacer {
+  height: 300px;
 }
