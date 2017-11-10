@@ -1,6 +1,12 @@
 .main {
-  padding: 20px;
+  padding: 10px;
   text-align:center;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin: 5px;
+  line-height: 1.3em;
 }
 
 #app-name-span {  
@@ -25,5 +31,5 @@ p {
 }
 
 .vspacer {
-  height: 300px;
+  height: 200px;
 }
