@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Recipe } from '../recipe.model';
 
 @Component({
@@ -7,26 +7,28 @@ import { Recipe } from '../recipe.model';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
+  @Output() recipeSelected = new EventEmitter<Recipe>();
+
   recipes: Recipe[] = [
     new Recipe(
-      'Test Recipe',
+      'Test Recipe 1',
       'This is simply a test, no magical recipe here... yet!',
-      'http://img1.cookinglight.timeinc.net/sites/default/files/updated_main_images/1201p124-chicken-piccata-x.jpg'
+      '../../../../assets/images/demo-list-image.jpg'
     ),
     new Recipe(
-      'Test Recipe',
-      'This is simply a test, no magical recipe here... yet!',
-      'http://img1.cookinglight.timeinc.net/sites/default/files/updated_main_images/1201p124-chicken-piccata-x.jpg'
+      'Recipe 2',
+      'This is the second test.',
+      '../../../../assets/images/demo-list-image.jpg'
     ),
     new Recipe(
-      'Test Recipe',
-      'This is simply a test, no magical recipe here... yet!',
-      'http://img1.cookinglight.timeinc.net/sites/default/files/updated_main_images/1201p124-chicken-piccata-x.jpg'
+      'Another Recipe',
+      'By now we shold be using some real data. ',
+      '../../../../assets/images/demo-list-image.jpg'
     ),
     new Recipe(
-      'Test Recipe',
-      'This is simply a test, no magical recipe here... yet!',
-      'http://img1.cookinglight.timeinc.net/sites/default/files/updated_main_images/1201p124-chicken-piccata-x.jpg'
+      'Recipe 4',
+      'Once again, this is simply a test, no magical recipe here... yet!',
+      '../../../../assets/images/demo-list-image.jpg'
     )
   ];
 
@@ -35,4 +37,7 @@ export class RecipeListComponent implements OnInit {
   ngOnInit() {
   }
 
+  onRecipeSelected(clickedRecipe: Recipe) {
+    this.recipeSelected.emit(clickedRecipe);
+  }
 }
