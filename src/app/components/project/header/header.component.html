@@ -25,8 +25,14 @@
       </ul>
       <!-- app mode options, displayed floating right -->
       <ul class="nav navbar-nav navbar-right">
+        <!-- SIMPLEST SOLUTION TO DROPDOWN PROBLEM -->
+        <!-- <li class="dropdown" [ngClass]="{open: drop}"> -->
+        <!-- SOLUTION 2 -->
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" role="button">
+          <!-- SIMPLEST SOLUTION TO DROPDOWN PROBLEM -->
+          <!-- <a href="#" class="dropdown-toggle" role="button" (click)="onDropdownClick()"> -->
+          <!-- SOLUTION 2 -->
+          <a href="#" class="dropdown-toggle" role="button" appDropdown>
             Options
             <span class="caret"></span>
           </a>

@@ -11,6 +11,7 @@ import { RecipeItemComponent } from './components/project/recipes/recipe-list/re
 import { ShoppingListComponent } from './components/project/shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './components/project/shopping-list/shopping-edit/shopping-edit.component';
 import { RouterModule, Routes } from '@angular/router';
+import { DropdownDirective } from './directives/dropdown.directive';
 
 const appRoutes: Routes = [
   {path: '', component: ProjectComponent},
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
     RecipeDetailComponent,
     RecipeItemComponent,
     ShoppingListComponent,
-    ShoppingEditComponent
+    ShoppingEditComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
