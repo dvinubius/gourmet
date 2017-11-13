@@ -24,15 +24,9 @@
         <li><a href="#" (click)="onSelect('list')">Shopping List</a></li>
       </ul>
       <!-- app mode options, displayed floating right -->
-      <ul class="nav navbar-nav navbar-right">
-        <!-- SIMPLEST SOLUTION TO DROPDOWN PROBLEM -->
-        <!-- <li class="dropdown" [ngClass]="{open: drop}"> -->
-        <!-- SOLUTION 2 -->
-        <li class="dropdown">
-          <!-- SIMPLEST SOLUTION TO DROPDOWN PROBLEM -->
-          <!-- <a href="#" class="dropdown-toggle" role="button" (click)="onDropdownClick()"> -->
-          <!-- SOLUTION 2 -->
-          <a href="#" class="dropdown-toggle" role="button" appDropdown>
+      <ul class="nav navbar-nav navbar-right">        
+        <li class="dropdown" appDropdown>         
+          <a href="#" class="dropdown-toggle" role="button">
             Options
             <span class="caret"></span>
           </a>

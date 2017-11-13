@@ -8,8 +8,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class HeaderComponent implements OnInit {
   @Output() recipesChosen = new EventEmitter<boolean>();
 
-  // for the simplest solution to the dropdown problem
-  // drop = false;
   constructor() { }
 
   ngOnInit() {
@@ -18,9 +16,4 @@ export class HeaderComponent implements OnInit {
   onSelect(link: string) {
     this.recipesChosen.emit(link === 'recipes');
   }
-
-  // for the simplest solution to the dropdown problem
-  // onDropdownClick() {
-  //   this.drop = !this.drop;
-  // }
 }
