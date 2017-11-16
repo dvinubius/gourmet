@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { Recipe } from '../recipes/recipe.model';
 
 
 @Injectable()
@@ -27,5 +28,22 @@ export class ShoppingListService {
     this.ingredients.push(ing);
     this.contentChanged.emit(this.getIngredients());
     // also possible: this.listService.ingredientAdded.emit(newIngredient);
+  }
+
+  addIngredients(ings: Ingredient[]) {
+    ings.forEach((addedIng) => {
+
+      // look for the ingredient in the existing list
+      let found = false;
+      this.ingredients.forEach((ing) => {
+        if (ing.name === addedIng.name) {
+          found = true;
+          ing.amount += addedIng.amount;
+        }
+      });
+      if (!found) { // need to add it to the list
+        this.ingredients.push(addedIng);
+      }
+    });
   }
 }
