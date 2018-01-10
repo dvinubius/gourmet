@@ -1,11 +1,12 @@
 <div class="row">
   <div class="col-x-12">
-    <button class="btn green">New Recipe</button>
+    <button [routerLink]="['new']" class="btn green">New Recipe</button>
     <hr>
   </div>
 </div>
-<div class="row" *ngFor="let recipe of recipes">
+<!-- each iteration is counted explicitly with let i (index is reserved keyword in ngFor syntax) -->
+<div class="row" *ngFor="let recipe of recipes; let i = index"> 
   <div class="col-xs-12">    
-    <app-recipe-item [itemRecipe]="recipe"></app-recipe-item>
+    <app-recipe-item [itemRecipe]="recipe" [index]="i"></app-recipe-item>
   </div>
 </div>

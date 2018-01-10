@@ -1,0 +1,16 @@
+.help-block {
+  color: deeppink;
+  background: linear-gradient(to right, lightgrey, linen, white);
+}
+
+.form-control.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.btn  {
+  min-width: 80px;
+}
+
+.expressive {
+  font-size: 1.3em;
+}

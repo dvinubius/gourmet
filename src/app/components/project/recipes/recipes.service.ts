@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Recipe } from './recipe.model';
-import { EventEmitter } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
+import { ShoppingListService } from '../shopping-list/shopping-list.service';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class RecipesService {
-
-  recipeSelected = new EventEmitter<Recipe>();
-
+  recipesChanged: Subject<Recipe[]> = new Subject();
+  
   private recipes: Recipe[] = [
     new Recipe(
       'Juicy Steaks',
@@ -43,6 +43,29 @@ export class RecipesService {
     return this.recipes.slice();
   }
 
-  constructor() { }
+  constructor(private listService: ShoppingListService) { }
 
+  addToShoppingList(ingredients: Ingredient[]) {
+    this.listService.addIngredients(ingredients);
+  }
+
+  // USE: load correct recipe in recipe-detail component according to id-param in route
+  getRecipeById(id) {
+    return this.recipes[id];
+  }
+
+  addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+    this.recipesChanged.next(this.getRecipes());
+  }
+
+  updateRecipe(index: number, recipe: Recipe) {
+    this.recipes[index] = recipe;
+    this.recipesChanged.next(this.getRecipes());
+  }
+
+  deleteRecipe(index: number) {
+    this.recipes.splice(index, 1);
+    this.recipesChanged.next(this.getRecipes());
+  }
 }

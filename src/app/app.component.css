@@ -31,5 +31,6 @@ p {
 }
 
 .vspacer {
-  height: 200px;
+  height: 180px;
+  background: linear-gradient(to bottom, white, white 80%, lightgray);
 }

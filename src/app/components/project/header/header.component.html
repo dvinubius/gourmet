@@ -11,7 +11,7 @@
         <span class="icon-bar"></span>
       </button>
       <!-- logo, displayed on the left -->
-      <a href="#" class="navbar-brand">
+      <a routerLink='' routerLinkActive = 'active' class="navbar-brand">
         <i class="fa fa-book" aria-hidden="true"></i>
         Recipe Book
       </a>      
@@ -20,8 +20,8 @@
     <div class="collapse navbar-collapse" id='nav-content'>
       <!-- navigation, displayed floating left -->
       <ul class="nav navbar-nav">
-        <li><a href="#" (click)="onSelect('recipes')">Recipes</a></li>
-        <li><a href="#" (click)="onSelect('list')">Shopping List</a></li>
+        <li><a routerLink='recipes' routerLinkActive = 'active' style='cursor:pointer;'>Recipes</a></li>
+        <li><a routerLink='shopping-list' routerLinkActive = 'active' style='cursor:pointer;'>Shopping List</a></li>
       </ul>
       <!-- app mode options, displayed floating right -->
       <ul class="nav navbar-nav navbar-right">        
@@ -31,8 +31,8 @@
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="#">Save</a></li>
-            <li><a href="#">Fetch</a></li>
+            <li><a style='cursor:pointer;'>Save</a></li>
+            <li><a style='cursor:pointer;'>Fetch</a></li>
           </ul>
         </li>
       </ul>

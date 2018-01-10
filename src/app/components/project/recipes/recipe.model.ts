@@ -13,3 +13,4 @@ export class Recipe {
     this.ingredients = ingredients;
   }
 }
+  

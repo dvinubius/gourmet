@@ -1,21 +1,38 @@
 <div class="row">
   <div class="col-xs-12">
-    <form action="">
+    <form [formGroup]="ingredientForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-sm-5 form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" class="form-control" #nameInput>
+          <label for="ingredientName">Name</label>
+          <input type="text" 
+                id="ingredientName" 
+                class="form-control"
+                formControlName="ingredientName">
+          <span class="help-block" *ngIf="!ingredientForm.get('ingredientName').valid && 
+                                            (ingredientForm.get('ingredientName').touched || 
+                                             triedSubmit)">Which ingredient, bro?</span>
         </div>  
-        <div class="col-sm-2 form-group">
+        <div class="col-sm-3 form-group">
           <label for="amount">Amount</label>
-          <input type="number" id="amount" class="form-control" #amountInput>
+          <input type="number" 
+                id="amount" 
+                class="form-control"
+                formControlName="amount">
+          <span class="help-block" *ngIf="!ingredientForm.get('amount').valid && 
+                                            (ingredientForm.get('amount').touched || 
+                                              ingredientForm.get('amount').dirty || 
+                                              triedSubmit)">What amount, sis?</span>
+          <span class="help-block" *ngIf="ingredientForm.get('amount').errors?.forbiddenAmounts && 
+                                            (ingredientForm.get('amount').dirty || 
+                                             triedSubmit)">Dat don't make sense!</span>
         </div>
       </div>
+      <span class="help-block expressive" *ngIf="!ingredientForm.valid && triedSubmit">Not so fast, my friend! You take care of 'em form fields first</span>
       <div class="row">
-        <div class="col-xs-12">
-          <button class="btn btn-success" type="submit" (click)="onAdd()">Add</button>
-          <button class="btn btn-danger" type="button">Delete</button>
-          <button class="btn btn-primary" type="button">Clear</button>
+        <div class="col-xs-5">
+          <button class="btn btn-success" type="submit">{{editMode ? 'Save' : 'Add'}}</button>
+          <button class="btn btn-danger pull-right" type="button" (click)="onDelete()" *ngIf="editMode">Delete</button>
+          <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>
         </div>
       </div>
     </form>

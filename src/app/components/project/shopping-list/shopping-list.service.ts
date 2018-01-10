@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { Output } from '@angular/core';
-import { EventEmitter } from '@angular/core';
 import { Recipe } from '../recipes/recipe.model';
+import { Subject } from 'rxjs/Subject';
 
 
 @Injectable()
 export class ShoppingListService {
-  @Output() contentChanged = new EventEmitter<Ingredient[]>();
-  // also possible to use:
-  // @Output() ingredientAdded = new EventEmitter<Ingredient>();
+  contentChanged: Subject<Ingredient[]> = new Subject();
+  startedEditing: Subject<number> = new Subject();
+  // editor will subscribe to it, ingredient list will inform it about selections
 
   ingredients: Ingredient[] = [
     new Ingredient('honey jar', 2),
@@ -24,10 +24,13 @@ export class ShoppingListService {
     return this.ingredients.slice(); // returns a copy
   }
 
+  getIngredient(index) {
+    return this.ingredients[index];
+  }
+
   registerIngredient(ing: Ingredient) {
     this.ingredients.push(ing);
-    this.contentChanged.emit(this.getIngredients());
-    // also possible: this.listService.ingredientAdded.emit(newIngredient);
+    this.contentChanged.next(this.getIngredients());
   }
 
   addIngredients(ings: Ingredient[]) {
@@ -45,5 +48,17 @@ export class ShoppingListService {
         this.ingredients.push(addedIng);
       }
     });
+
+    this.contentChanged.next(this.getIngredients());
+  }
+
+  updateIngredient(index: number, ingredient: Ingredient) {
+    this.ingredients[index] = ingredient;
+    this.contentChanged.next(this.getIngredients());
+  }
+
+  removeIngredient(index: number) {
+    this.ingredients.splice(index, 1);
+    this.contentChanged.next(this.getIngredients());
   }
 }
