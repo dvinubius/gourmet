@@ -5,7 +5,7 @@ import { RecipesService } from '../recipes/recipes.service';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
-import { AuthService } from '../../auth/auth.service';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable()
 export class DataStorageService {

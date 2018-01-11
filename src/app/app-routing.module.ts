@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 
 import { RouterModule, Routes } from '@angular/router';
-import { WelcomeComponent } from './components/project/welcome/welcome.component';
-import { RecipesComponent } from './components/project/recipes/recipes.component';
-import { ShoppingListComponent } from './components/project/shopping-list/shopping-list.component';
-import { ErrorPageComponent } from './components/error-page/error-page.component';
-import { RecipeDetailComponent } from './components/project/recipes/recipe-detail/recipe-detail.component';
-import { NoRecipeSelectedComponent } from './components/project/recipes/no-recipe-selected/no-recipe-selected.component';
-import { RecipeEditComponent } from './components/project/recipes/recipe-edit/recipe-edit.component';
-import { SignupComponent } from './components/auth/signup/signup.component';
-import { SigninComponent } from './components/auth/signin/signin.component';
-import { AuthGuard } from './components/auth/auth-guard.service';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { RecipesComponent } from './recipes/recipes.component';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
+import { NoRecipeSelectedComponent } from './recipes/no-recipe-selected/no-recipe-selected.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { AuthGuard } from './auth/auth-guard.service';
 
 const appRoutes: Routes = [
   {path: '', component: WelcomeComponent, pathMatch: 'full'},
