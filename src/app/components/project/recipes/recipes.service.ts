@@ -3,11 +3,12 @@ import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { Subject } from 'rxjs/Subject';
+import { Http } from '@angular/http';
+import { DataStorageService } from '../shared/data-storage.service';
 
 @Injectable()
 export class RecipesService {
   recipesChanged: Subject<Recipe[]> = new Subject();
-  
   private recipes: Recipe[] = [
     new Recipe(
       'Juicy Steaks',
@@ -38,12 +39,18 @@ export class RecipesService {
     )
   ];
 
+  receiveRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.getRecipes());
+  }
+
   getRecipes() {
     // return a new array, an exact copy of the service object's array.
     return this.recipes.slice();
   }
 
-  constructor(private listService: ShoppingListService) { }
+  constructor(private listService: ShoppingListService,
+              private http: Http) { }
 
   addToShoppingList(ingredients: Ingredient[]) {
     this.listService.addIngredients(ingredients);

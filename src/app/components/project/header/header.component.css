@@ -8,3 +8,9 @@
     font-size: 1.3em;
   }
 }
+
+.logged-in-user {
+  opacity: 0.7;
+  font-weight: bolder;
+  color: darkorange !important;
+}

@@ -20,6 +20,13 @@ import { NoRecipeSelectedComponent } from './components/project/recipes/no-recip
 import { RecipeEditComponent } from './components/project/recipes/recipe-edit/recipe-edit.component';
 import { RecipesService } from './components/project/recipes/recipes.service';
 import { ShoppingListService } from './components/project/shopping-list/shopping-list.service';
+import { HttpModule } from '@angular/http';
+import { DataStorageService } from './components/project/shared/data-storage.service';
+import { SignupComponent } from './components/auth/signup/signup.component';
+import { SigninComponent } from './components/auth/signin/signin.component';
+import { AuthService } from './components/auth/auth.service';
+import { AuthGuard } from './components/auth/auth-guard.service';
+
 
 
 
@@ -38,15 +45,18 @@ import { ShoppingListService } from './components/project/shopping-list/shopping
     WelcomeComponent,
     ErrorPageComponent,
     NoRecipeSelectedComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule
   ],
-  providers: [RecipesService, ShoppingListService],
+  providers: [RecipesService, ShoppingListService, DataStorageService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

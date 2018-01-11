@@ -24,17 +24,25 @@
         <li><a routerLink='shopping-list' routerLinkActive = 'active' style='cursor:pointer;'>Shopping List</a></li>
       </ul>
       <!-- app mode options, displayed floating right -->
-      <ul class="nav navbar-nav navbar-right">        
-        <li class="dropdown" appDropdown>         
-          <a href="#" class="dropdown-toggle" role="button">
-            Options
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a style='cursor:pointer;'>Save</a></li>
-            <li><a style='cursor:pointer;'>Fetch</a></li>
-          </ul>
-        </li>
+      <ul class="nav navbar-nav navbar-right"> 
+        <ng-template [ngIf]="!authService.isAuthenticated()">
+          <li><a routerLink='signin' routerLinkActive = 'active' style='cursor:pointer;'>Log In</a></li>
+          <li><a routerLink='signup' routerLinkActive = 'active' style='cursor:pointer;'>Register</a></li>
+        </ng-template>
+        <ng-template [ngIf]="authService.isAuthenticated()">
+          <li><a style="cursor: pointer;" class="logged-in-user">{{authService.getLoggedInUser()}}</a></li>
+          <li><a style="cursor: pointer;" (click)="onLogout()">Log Out</a></li>      
+          <li class="dropdown" appDropdown>         
+            <a class="dropdown-toggle" role="button">
+              Database
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a style='cursor:pointer;' (click)="onSaveClicked()">Save</a></li>
+              <li><a style='cursor:pointer;' (click)="onFetchClicked()">Fetch</a></li>
+            </ul>
+          </li>
+        </ng-template>        
       </ul>
     </div>
   </div>
