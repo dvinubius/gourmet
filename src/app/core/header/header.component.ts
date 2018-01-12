@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { DataStorageService } from '../shared/data-storage.service';
-import { RecipesService } from '../recipes/recipes.service';
-import { AuthService } from '../auth/auth.service';
+import { DataStorageService } from '../../shared/data-storage.service';
+import { RecipesService } from '../../recipes/recipes.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -9,17 +9,11 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Output() recipesChosen = new EventEmitter<boolean>();
-
   constructor(private dataStorageService: DataStorageService,
               private recipeService: RecipesService,
               private authService: AuthService) { }
 
   ngOnInit() {
-  }
-
-  onSelect(link: string) {
-    this.recipesChosen.emit(link === 'recipes');
   }
 
   onSaveClicked() {

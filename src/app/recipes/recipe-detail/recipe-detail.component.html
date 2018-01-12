@@ -19,7 +19,7 @@
       </button>
       <ul class="dropdown-menu">
         <li><a (click)='toShoppingList()' style="cursor:pointer" [ngClass]="{'disabled': disableAdd}">To Shopping List</a></li>
-        <li><a [routerLink]="['edit']" style='cursor:pointer;'>Edit Recipe</a></li>
+        <li><a [routerLink]="['edit']" fragment='router-outlet' style='cursor:pointer;'>Edit Recipe</a></li>
         <li><a style='cursor:pointer;' (click)="onDeleteClicked()">Delete Recipe</a></li>
       </ul>
     </div>

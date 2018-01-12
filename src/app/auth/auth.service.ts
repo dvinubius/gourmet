@@ -1,26 +1,28 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable()
 export class AuthService {
   token: string;
   user: string;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private route: ActivatedRoute) { }
 
   signupUser(email: string, password: string) {
     firebase.auth().createUserWithEmailAndPassword(email, password)
         .catch( error => console.log(error) );
   }
 
-  signinUser(email: string, password: string) {
+  signinUser(email: string, password: string, entryPoint: string) {
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then( resp => {
           firebase.auth().currentUser.getToken()
                 .then( tk => this.token = tk);  // may be a valid token, or an expired one
           this.user = email;
-          this.router.navigate(['']);
+          this.router.navigate([entryPoint], {preserveFragment: true});
          } )
         .catch( error => console.log(error) );
   }
