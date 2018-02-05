@@ -55,9 +55,9 @@
       <div class="row">
         <div class="col-xs-12" formArrayName="ingredients">
           <h4 *ngIf="!anyIngredients">No ingredients</h4>
-          <label *ngIf="anyIngredients"for="i">Ingredients</label>
+          <label *ngIf="anyIngredients" for="i">Ingredients</label>
           <div class="row" 
-              *ngFor="let ingCtrl of recipeForm.get('ingredients').controls; let i = index"
+              *ngFor="let ingCtrl of getControls().controls; let i = index"
               [formGroupName]="i">
             <div class="col-xs-8">
               <input type="text" 

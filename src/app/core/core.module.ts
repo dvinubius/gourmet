@@ -5,14 +5,12 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
-
-import { RecipesService } from '../recipes/recipes.service';
-import { ShoppingListService } from '../shopping-list/shopping-list.service';
-import { DataStorageService } from '../shared/data-storage.service';
-
-import { AuthService } from '../auth/auth.service';
 import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from '../app-routing.module';
+import { AuthRoutingModule } from '../auth/auth-routing.module';
+import { AuthInterceptor } from '../shared/auth.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoggingInterceptor } from '../shared/logging.interceptor';
 
 @NgModule({
   declarations: [
@@ -31,9 +29,7 @@ import { AppRoutingModule } from '../app-routing.module';
     ErrorPageComponent,
     AppRoutingModule
   ],
-  providers: [RecipesService,
-              ShoppingListService,
-              DataStorageService,
-              AuthService]
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+              {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true}]
 })
 export class CoreModule { }

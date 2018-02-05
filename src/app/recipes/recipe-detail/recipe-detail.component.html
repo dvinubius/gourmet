@@ -1,14 +1,14 @@
 <div class="row">
   <div class="col-xs-12">
-    <img src="{{recipe.imagePath}}" 
-        alt="{{recipe.name}}" 
+    <img src="{{(recipesState | async).recipes[id].imagePath}}" 
+        alt="{{(recipesState | async).recipes[id].name}}" 
         class="img-responsive"
         style="max-height: 200px; margin-top: 20px;">
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <h1>{{recipe.name}}</h1>
+    <h1>{{(recipesState | async).recipes[id].name}}</h1>
   </div>
 </div>
 <div class="row">
@@ -30,7 +30,7 @@
     <hr>
   </div>
   <div class="col-xs-12">      
-    <p>{{recipe.description}}</p>
+    <p>{{(recipesState | async).recipes[id].description}}</p>
   </div>      
 </div>
 <div class="row">
@@ -39,7 +39,7 @@
   </div>
   <div class="col-xs-12 col-sm-7">      
     <ul class="list-group">
-      <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
+      <li class="list-group-item" *ngFor="let ingredient of (recipesState | async).recipes[id].ingredients">
         {{ingredient.name}} -- {{ingredient.amount}} 
       </li>
     </ul>

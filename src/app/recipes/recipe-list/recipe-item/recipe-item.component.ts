@@ -1,6 +1,5 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { Recipe } from '../../recipe.model';
-import { RecipesService } from '../../recipes.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
@@ -13,7 +12,7 @@ export class RecipeItemComponent implements OnInit {
   @Input() itemRecipe: Recipe;
   @Input() index: number;
 
-  constructor(private recipesService: RecipesService) { }
+  constructor() { }
 
   ngOnInit() {
   }

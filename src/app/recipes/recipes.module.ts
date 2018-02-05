@@ -12,6 +12,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RecipesRoutingModule } from './recipes-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { AuthGuard } from '../auth/auth-guard.service';
+import { StoreModule } from '@ngrx/store';
+import { recipeReducer } from './store/recipe.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { RecipesEffects } from './store/recipe.effects';
 
 
 
@@ -24,7 +28,11 @@ import { AuthGuard } from '../auth/auth-guard.service';
     RecipeListComponent,
     NoRecipeSelectedComponent
   ],
-  imports: [ReactiveFormsModule, CommonModule, RecipesRoutingModule, SharedModule],
+  imports: [ReactiveFormsModule,
+            RecipesRoutingModule,
+            SharedModule,
+            StoreModule.forFeature('recipes', recipeReducer),
+            EffectsModule.forFeature([RecipesEffects])],
   exports: [],
   providers: [AuthGuard],
   bootstrap: [RecipesComponent]

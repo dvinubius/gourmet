@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService } from '../auth.service';
 import { ActivatedRoute } from '@angular/router';
+import { AppState } from '../../store/app.reducers';
+import { Store } from '@ngrx/store';
+import * as fromAuth from '../store/auth.reducer';
 
 @Component({
   selector: 'app-signin',
@@ -10,9 +12,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SigninComponent implements OnInit {
   entryPoint: string; // a URL : if redirected here because authentication was needed - where to go back after login?
-  entryPointFragment: string;
 
-  constructor(private authService: AuthService,
+  constructor(private store: Store<AppState>,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -25,6 +26,6 @@ export class SigninComponent implements OnInit {
     }
     const email = f.value.email;
     const password = f.value.password;
-    this.authService.signinUser(email, password, this.entryPoint);
+    this.store.dispatch(new fromAuth.AttemptSignin({username: email, password: password, location: this.entryPoint}));
   }
 }

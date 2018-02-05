@@ -30,9 +30,9 @@
       <span class="help-block expressive" *ngIf="!ingredientForm.valid && triedSubmit">Not so fast, my friend! You take care of 'em form fields first</span>
       <div class="row">
         <div class="col-xs-5">
-          <button class="btn btn-success" type="submit">{{editMode ? 'Save' : 'Add'}}</button>
-          <button class="btn btn-danger pull-right" type="button" (click)="onDelete()" *ngIf="editMode">Delete</button>
+          <button class="btn btn-success" type="submit">{{editMode ? 'Save' : 'Add'}}</button>          
           <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>
+          <button class="btn btn-danger pull-right" type="button" (click)="onDelete()" *ngIf="editMode">Delete</button> 
         </div>
       </div>
     </form>

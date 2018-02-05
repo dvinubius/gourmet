@@ -13,7 +13,7 @@ import { AuthRoutingModule } from './auth-routing.module';
     SigninComponent,
     SignupComponent
   ],
-  imports: [FormsModule, CommonModule, AuthRoutingModule],
+  imports: [AuthRoutingModule, FormsModule, CommonModule],
   exports: [],
   providers: [],
   bootstrap: [SigninComponent]
