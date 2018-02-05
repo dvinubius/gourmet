@@ -17,6 +17,8 @@ import { AuthEffects } from './auth/store/auth.effects';
 
 import { environment } from '../environments/environment';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -32,7 +34,8 @@ import { environment } from '../environments/environment';
     StoreModule.forRoot(REDUCERS),
     EffectsModule.forRoot([AuthEffects]),
     StoreRouterConnectingModule,
-    !environment.production ? StoreDevtoolsModule.instrument() : []
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    BrowserAnimationsModule
   ],
   bootstrap: [AppComponent]
 })

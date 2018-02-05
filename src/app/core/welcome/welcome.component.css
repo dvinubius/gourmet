@@ -9,10 +9,6 @@ h1, h3, h2, h4 {
 .pane {
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, 
-                                white,                                 
-                                rgba(226, 191, 115, 0.548),                                 
-                                white);
   padding: 20px 10px;  
 }
 

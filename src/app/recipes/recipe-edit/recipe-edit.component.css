@@ -11,3 +11,7 @@
 #preview {
   max-width: 250px;
 }
+
+.outer {
+  margin-top: -50px;
+}

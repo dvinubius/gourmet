@@ -3,3 +3,8 @@ a.disabled, a.disabled:hover {
   color:lightgray;
   cursor:default;
 }
+
+
+.ingredient-group {
+  max-width: 320px;
+}

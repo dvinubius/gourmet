@@ -2,7 +2,7 @@
   <div class="col-xs-12">
     <img src="{{(recipesState | async).recipes[id].imagePath}}" 
         alt="{{(recipesState | async).recipes[id].name}}" 
-        class="img-responsive"
+        class="img-responsive img-thumbnail"
         style="max-height: 200px; margin-top: 20px;">
   </div>
 </div>
@@ -37,8 +37,8 @@
   <div class="col-xs-6">
     <hr>
   </div>
-  <div class="col-xs-12 col-sm-7">      
-    <ul class="list-group">
+  <div class="col-xs-10 col-sm-7">      
+    <ul class="list-group ingredient-group">
       <li class="list-group-item" *ngFor="let ingredient of (recipesState | async).recipes[id].ingredients">
         {{ingredient.name}} -- {{ingredient.amount}} 
       </li>
