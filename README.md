@@ -6,7 +6,7 @@ Recipe Management Tool for Food Lovers, showcasing basic use of
 - Routing
 - Angular Custom Modules
 - Lazy Loading
-- Bootstrap in Angular
+- Responsive Design via Bootstrap in Angular
 - ngrx
 
 See it live at http://dvinubius.thecompletewebhosting.com/projects/gourmet
