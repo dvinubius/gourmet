@@ -8,3 +8,5 @@ Recipe Management Tool for Food Lovers, showcasing basic use of
 - Lazy Loading
 - Bootstrap in Angular
 - ngrx
+
+See it live at http://dvinubius.thecompletewebhosting.com/projects/gourmet
