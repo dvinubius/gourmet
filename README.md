@@ -3,6 +3,7 @@ Angular App using Firebase as a Backend.
 Recipe Management Tool for Food Lovers, showcasing basic use of
 
 - Authentication via Firebase
+- DB as a service (Firebase)
 - Routing
 - Angular Custom Modules
 - Lazy Loading
