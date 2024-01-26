@@ -15,4 +15,4 @@ Recipe Management Tool for Food Lovers, showcasing basic use of
 - Responsive Design via Bootstrap in Angular
 - ngrx
 
-See it live at http://dvinubius.thecompletewebhosting.com/projects/gourmet
+See it live [here](https://dvinubius-gallery.web.app/projects/gourmet)
